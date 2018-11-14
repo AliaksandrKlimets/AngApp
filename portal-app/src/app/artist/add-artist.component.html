@@ -1,0 +1,50 @@
+<div class="col-md-8">
+  <h2 class="text-center">Add artist</h2>
+  <form>
+
+    <div class="input-field col s12">
+    <input type="text" [(ngModel)]="artist.artistName"  name="artistName" class="autocomplete" id="artistName" >
+    <label for="artistName">Artist name:</label>
+  </div>
+
+    <div class="input-field col s12">
+      <label  for="artistInfo">Info:</label>
+      <input type="text" [(ngModel)]="artist.artistInfo"  name="artistInfo" class="autocomplete" id="artistInfo" >
+    </div>
+
+    <div class="input-field col s12">
+      <label for="country">Country:</label>
+      <input type="text" [(ngModel)]="artist.country" name="country" class="autocomplete" id="country">
+    </div>
+
+    <div class="input-field col s12">
+      <label for="photo">Artist photo:</label>
+      <input type="text" [(ngModel)]="artist.photo" name="photo" class="autocomplete" id="photo">
+      <div>
+        <img  src="{{artist.photo}}" width="200">
+      </div>
+    </div>
+    <div class="input-field col s12 mb-4">
+      <button class="btn btn-outline-secondary dropdown-toggle mb-3" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" id="genres">Genres
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="addGenre('ROCK')">ROCK</a>
+        <a class="dropdown-item" (click)="addGenre('BLUES')">BLUES</a>
+        <a class="dropdown-item" (click)="addGenre('JAZZ')">JAZZ</a>
+        <a class="dropdown-item" (click)="addGenre('DISCO')">DISCO</a>
+        <a class="dropdown-item" (click)="addGenre('HIPHOP')">HIPHOP</a>
+        <a class="dropdown-item" (click)="addGenre('FUNK')">FUNK</a>
+        <a class="dropdown-item" (click)="addGenre('PUNK')">PUNK</a>
+      </div>
+      <div *ngFor="let genre of artist.genres" class="btn-group">
+        <div class="btn-group">
+          <button class="btn btn-info mb-3 ml-3" style="background-color: steelblue;" (click)="removeGenre(genre)"><i
+            class="material-icons ml-3" style="float: right;">cancel</i> {{genre}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success mt-3 ml-3" (click)="createArtist()">Create</button>
+  </form>
+</div>

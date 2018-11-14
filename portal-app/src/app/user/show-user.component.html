@@ -1,0 +1,41 @@
+<div class="col-md-6">
+  <div  class="mb-6">
+    <div class="card" >
+      <div class="card-body">
+        <h1 class="card-title">{{user.username}}</h1>
+        <table class="table table-borderless col-md-12 mb-4">
+          <tbody>
+          <tr>
+            <td>Name: {{user.name}}</td>
+          </tr>
+          <tr>
+            <td>Surname: {{user.surname}}</td>
+          </tr>
+          <tr>
+            <td>Email: {{user.email}}</td>
+          </tr>
+          <tr>
+            <td>Phone: {{user.phone}}</td>
+          </tr>
+          <tr>
+            <td>B-date: {{user.birthDate}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Festivals list
+          </button>
+        </p>
+        <div class="collapse " id="collapseExample">
+          <div class="card card-body">
+            <ul class="list-group list-group-flush" *ngFor="let fest of user.festivals">
+              <li class="list-group-item">{{fest.festivalName}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

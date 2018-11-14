@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 nav-wrapper" style="height: 79px;">
+  <a class="navbar-brand" routerLink="/" style="margin-left: 10%;">Home</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="  ">
+        <a  class="nav-link" routerLink="/festivals">Festivals</a>
+      </li>
+      <li class=" ">
+      <a  class="nav-link" routerLink="/users">List Users </a>
+      </li>
+      <li class=" ">
+        <a  class="nav-link" routerLink="/artists">Artists</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/users/add"><i class="material-icons left mt-1">control_point</i>Add user</a>
+          <a class="dropdown-item" routerLink="/artists/add"><i class="material-icons left mt-1">control_point</i>Add artist</a>
+          <a class="dropdown-item" routerLink="/festivals/add"><i class="material-icons left mt-1">control_point</i>Add festival</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Fest genres
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+          <a class="dropdown-item" routerLink="/festivals/genres/OPENAIR">Open air</a>
+          <a class="dropdown-item" routerLink="/festivals/genres/FOODFESTIVAL" >Food festival</a>
+          <a class="dropdown-item" routerLink="/festivals/genres/STANDUP" >Stand up</a>
+          <a class="dropdown-item" routerLink="/festivals/genres/MOVIEFEST" >Movie festival</a>
+          <a class="dropdown-item" routerLink="/festivals/genres/ROCKFEST">Rock festival</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container" style="min-width: 80%;">
+  <router-outlet></router-outlet>
+</div>

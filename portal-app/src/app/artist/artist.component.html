@@ -1,0 +1,36 @@
+<div class="col-md-14">
+  <h2 class="mb-3"> Artists</h2>
+  <div *ngFor="let artist of artists" class="mb-4">
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <img class=" float-right"
+             width="200"
+             src="{{artist.photo}}">
+        <div class="btn-group" role="group" aria-label="Basic example" *ngFor="let genre of artist.genres">
+          <button type="button"  class="btn  mr-3 mb-3"><i class="material-icons left">extension</i>{{genre}}
+          </button>
+        </div>
+        <h3 class="card-title">{{artist.artistName}}</h3>
+        <table class="table table-borderless col-md-8 mb-5">
+          <tbody>
+          <tr>
+            <td>Country: {{artist.country}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="card card-body mb-5" style="width: 70%;">
+          {{artist.artistInfo}}
+        </div>
+        <button class="btn btn-danger btn-sm" style="background-color: crimson" (click)="deleteArtist(artist)"><i
+          class="material-icons left">clear</i> Delete artist</button>
+        <button class="btn btn-danger btn-sm ml-5" routerLink="/artists/update/{{artist.id}}" style="background-color: darkgray"
+                data-toggle="modal"
+                data-target="#exampleModalLong"><i class="material-icons left">autorenew</i> Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

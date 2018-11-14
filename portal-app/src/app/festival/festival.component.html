@@ -1,0 +1,94 @@
+<div class="col-md-14">
+  <h2 class="mb-3">Festivals</h2>
+  <div *ngFor="let festival of festivals" class="mb-4">
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <img class=" float-right"
+             src="{{festival.festPhoto}}"
+             width="320" alt="asd">
+        <div class="btn-group" role="group" aria-label="Basic example" *ngFor="let genre of festival.genres">
+          <button type="button" routerLink="/festivals/genres/{{genre}}" class="btn  mr-3 mb-3"><i
+            class="material-icons left">extension</i>{{genre}}
+          </button>
+        </div>
+        <h3>{{festival.festivalName}}</h3><h5 *ngIf="!festival.available">(SOLD OUT)</h5>
+        <hr class="ml-0 col-md-8">
+        <div class="mt-5 mb-5"><h4>Schedule</h4></div>
+        <table class="table table-borderless col-md-8 mb-5">
+          <tbody>
+          <tr>
+            <td>{{festival.festDate}}</td>
+            <td>{{festival.festTime}}</td>
+            <th>{{festival.cost}} BYN</th>
+          </tr>
+          </tbody>
+        </table>
+
+        <div class="card card-body mb-5 col-md-8">
+          {{festival.festInfo}}
+        </div>
+        <button class="btn btn-danger btn-sm" style="background-color: crimson" (click)="deleteFestival(festival)"><i
+          class="material-icons left">clear</i> Delete festival
+        </button>
+        <button *ngIf="festival.available" class="btn btn-danger btn-sm ml-5" (click)="addId(festival.id)"
+                style="background-color: steelblue"
+                data-toggle="modal"
+                data-target="#exampleModalLong"><i class="material-icons left">check</i> I'll attend
+        </button>
+        <button class="btn btn-danger btn-sm ml-5" routerLink="/festivals/update/{{festival.id}}"
+                style="background-color: darkgray"
+                data-toggle="modal"
+                data-target="#exampleModalLong"><i class="material-icons left">autorenew</i> Update
+        </button>
+        <button *ngIf="festival.available" class="btn btn-danger btn-sm ml-5"
+                style="background-color: darkslategray"
+                (click)="closeAvailable(festival)"><i class="material-icons left">block</i> Close
+        </button>
+        <button *ngIf="!festival.available" class="btn btn-danger btn-sm ml-5"
+                style="background-color: deepskyblue"
+                (click)="openAvailable(festival)"><i class="material-icons left">control_point</i> Open
+        </button>
+
+
+        <div class="mt-3">
+          <ul class="list-group list-group-flush col-md-8" *ngFor="let artist of festival.artists">
+            <li class="list-group-item">{{artist.artistName}}</li>
+          </ul>
+        </div>
+        <h5>Participants count: {{festival.participants.length}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Please, write your contact info to attend </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="input-field col s12">
+            <input type="text" [(ngModel)]="user.name" name="name" class="autocomplete" id="name">
+            <label for="name">Name:</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="text" [(ngModel)]="user.surname" name="name" class="autocomplete" id="surname">
+            <label for="surname">Surname:</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="text" [(ngModel)]="user.email" name="name" class="autocomplete" id="email">
+            <label for="email">Email:</label>
+          </div>
+        </form>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="addAnon(user)" data-dismiss="modal">Attend</button>
+    </div>
+  </div>
+</div>
+

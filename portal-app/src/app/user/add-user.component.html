@@ -1,0 +1,35 @@
+<div class="col-md-8">
+  <h2 class="text-center">Add User</h2>
+  <form>
+    <div class="input-field col s12 mb-4">
+      <label for="username">User Name:</label>
+      <input type="text" [(ngModel)]="user.username" name="username" class="form-control" id="username">
+    </div>
+
+    <div class="input-field col s12 mb-4">
+      <label for="password">Password:</label>
+      <input type="password" [(ngModel)]="user.password" name="password" class="form-control"
+             id="password">
+    </div>
+
+    <div class="input-field col s12 mb-4">
+      <label for="firstName">First Name:</label>
+      <input  type="text"[(ngModel)]="user.name" name="name" class="form-control" id="firstName">
+    </div>
+
+    <div class="input-field col s12 mb-4">
+      <label for="lastName">Last Name:</label>
+      <input type="text" [(ngModel)]="user.surname" name="surname" class="form-control" id="lastName">
+    </div>
+    <div class="input-field col s12 mb-4">
+      <label for="phone">Phone:</label>
+      <input type="text" [(ngModel)]="user.phone" name="phone" class="form-control" id="phone">
+    </div>
+    <div class="input-field col s12 mb-5">
+      <label for="birthDate">Birth date:</label>
+      <input type="date"  [(ngModel)]="user.birthDate" name="birthDate" class="form-control" style="width: 90%; padding-left: 10%;"
+             id="birthDate">
+    </div>
+    <button class="btn btn-success" (click)="createUser()">Create</button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="col-md-8">
+  <h2 class="text-center">Add festival</h2>
+  <form>
+
+    <div class="input-field col s12 mb-4">
+      <label for="username">Username:</label>
+      <input type="text" [(ngModel)]="user.username" name="username" class="autocomplete"
+             id="username">
+    </div>
+
+    <div class="input-field col s12 mb-4">
+      <label for="password">Password:</label>
+      <input type="text" [(ngModel)]="user.password" name="password" class="autocomplete"
+             id="password">
+    </div>
+
+    <button class="btn btn-success" (click)="login()">Login</button>
+  </form>
+</div>

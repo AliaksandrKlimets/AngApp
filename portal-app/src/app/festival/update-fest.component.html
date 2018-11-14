@@ -1,0 +1,62 @@
+<div class="col-md-8">
+  <h2 class="text-center">Update festival</h2>
+  <form>
+    <div class="input-group col s12 mb-4">
+      <label for="festivalName">Festival Name:</label>
+      <input type="text" [(ngModel)]="festival.festivalName" name="festivalName" class="autocomplete"
+             id="festivalName">
+    </div>
+
+    <div class="input-group col s12 mb-4">
+      <label for="place">Place:</label>
+      <input type="text" [(ngModel)]="festival.place" name="place" class="autocomplete" id="place">
+    </div>
+
+    <div class="input-group col s12 mb-4">
+      <label for="festInfo">Fest info:</label>
+      <input type="text" [(ngModel)]="festival.festInfo" name="festInfo" class="autocomplete" id="festInfo">
+    </div>
+
+    <div class="input-group col s12 mb-4">
+      <label for="cost">Cost:</label>
+      <input type="text" [(ngModel)]="festival.cost" name="cost" class="autocomplete" id="cost">
+    </div>
+    <div class="input-group col s12 mb-4">
+      <label for="festDate">Fest date:</label>
+      <input type="date" [(ngModel)]="festival.festDate" name="festDate" class="autocomplete"
+             style="width: 92%; padding-left: 8%;"
+             id="festDate">
+    </div>
+    <!--<div class="input-field col s12 mb-4">-->
+    <!--<label for="festTime">Fest date:</label>-->
+    <!--<input type="time" [(ngModel)]="festival.festTime"  name="festTime" class="autocomplete"-->
+    <!--id="festTime">-->
+    <!--</div>-->
+    <div class="input-group col s12 mb-4">
+      <label for="festPhoto">Fest photo link:</label>
+      <input type="text" [(ngModel)]="festival.festPhoto" name="festPhoto" class="form-control"
+             id="festPhoto">
+    </div>
+
+    <div class="input-group  col s12 mb-4">
+      <button class="btn btn-outline-secondary dropdown-toggle mb-3" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" id="genres">Genres
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="addGenre('FOODFESTIVAL')">FOODFESTIVAL</a>
+        <a class="dropdown-item" (click)="addGenre('OPENAIR')">OPENAIR</a>
+        <a class="dropdown-item" (click)="addGenre('ROCKFEST')">ROCKFEST</a>
+        <a class="dropdown-item" (click)="addGenre('MOVIEFEST')">MOVIEFEST</a>
+        <a class="dropdown-item" (click)="addGenre('STANDUP')">STANDUP</a>
+      </div>
+      <div *ngFor="let genre of festival.genres" class="btn-group">
+        <div class="btn-group">
+          <button class="btn btn-info mb-3 ml-3" style="background-color: steelblue;" (click)="removeGenre(genre)"><i
+            class="material-icons ml-3" style="float: right;">cancel</i> {{genre}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="updateFestival()">Update</button>
+  </form>
+</div>
